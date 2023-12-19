@@ -1,0 +1,398 @@
+*FINDING THE LARGEST NO*
+#include <stdio.h>
+
+int main()
+{
+    int a, b, c, largest;
+
+    printf("Enter the first number: ");
+    scanf("%d", &a);
+
+    printf("Enter the second number: ");
+    scanf("%d", &b);
+
+    printf("Enter the third number: ");
+    scanf("%d", &c);
+
+    // Find the largest number
+    if(a > b && a > c)
+    {
+        largest = a;
+    }
+    else if(b > a && b > c)
+    {
+        largest = b;
+    }
+    else
+    {
+        largest = c;
+    }
+
+    printf("The largest number is: %d\n", largest);
+
+    return 0;
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+*FLOAT SQUARES*
+
+#include <stdio.h>
+
+
+float square(float num) {
+    return num * num;
+}
+
+
+float rectangleArea(float length, float width) {
+    return length * width;
+}
+
+int main() {
+    float number, length, width;
+
+   
+    printf("Enter a number to find its square: ");
+    scanf("%f", &number);
+
+    
+    printf("Square of %f is: %f\n", number, square(number));
+
+    
+    printf("\nEnter the length of the rectangle: ");
+    scanf("%f", &length);
+    printf("Enter the width of the rectangle: ");
+    scanf("%f", &width);
+
+    
+    printf("Area of the rectangle with length %f and width %f is: %f\n", length, width, rectangleArea(length, width));
+
+    return 0;
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+*VOWELS*
+#include <stdio.h>
+#include <ctype.h>
+
+int main() {
+    char ch;
+    int count = 0;
+
+    // Get user input until Enter key is pressed
+    printf("Enter a string (press Enter to finish): ");
+    while ((ch = getchar()) != '\n') {
+        // Convert the character to lowercase for case-insensitive comparison
+        char lowerCh = tolower(ch);
+
+        // Check if the character is a vowel using a switch statement
+        switch (lowerCh) {
+            case 'a':
+            case 'e':
+            case 'i':
+            case 'o':
+            case 'u':
+                ++count;
+                break;
+        }
+    }
+
+    // Display the count of vowels
+    printf("Number of vowels in the string: %d\n", count);
+
+    return 0;
+}
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+*INTEREST CALCULATOR*
+#include <stdio.h>
+
+// Function declaration
+float CalculateInterestByUsingParameterizedFunction(float principal, float rate, float time);
+
+int main()
+{
+    float principal, rate, time;
+    float interest;
+
+    printf("Enter principal amount: ");
+    scanf("%f", &principal);
+
+    printf("Enter rate of interest: ");
+    scanf("%f", &rate);
+
+    printf("Enter time in years: ");
+    scanf("%f", &time);
+
+    interest = CalculateInterestByUsingParameterizedFunction(principal, rate, time);
+
+    printf("The calculated interest is: %.2f\n", interest);
+
+    return 0;
+}
+
+// Function definition
+float CalculateInterestByUsingParameterizedFunction(float principal, float rate, float time)
+{
+    float interest;
+
+    interest = (principal * rate * time) / 100;
+
+    return interest;
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+*PRIME NUMBER*
+#include <stdio.h>
+
+int isPrime(int num) {
+    if (num < 2) {
+        return 0;  // Numbers less than 2 are not prime
+    }
+    for (int i = 2; i * i <= num; ++i) {
+        if (num % i == 0) {
+            return 0;  // The number is divisible by i, hence not prime
+        }
+    }
+    return 1;  // The number is prime
+}
+
+int main() {
+    int number;
+
+    // Get user input 
+    printf("Enter a number: ");
+    scanf("%d", &number);
+
+    // Check if the number is positive or negative
+    if (number > 0) {
+        printf("%d is a positive number.\n", number);
+    } else if (number < 0) {
+        printf("%d is a negative number.\n", number);
+    } else {
+        printf("The entered number is zero.\n");
+    }
+    if (isPrime(number)) {
+        printf("%d is a prime number.\n", number);
+    } else {
+        printf("%d is not a prime number.\n", number);
+    }
+
+    return 0;
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+*STAR PATTERN*
+#include <stdio.h>
+
+int main() {
+    int rows, i, j;
+
+    printf("Enter the number of rows: ");
+    scanf("%d", &rows);
+
+    for (i = rows; i >= 1; --i) {
+        for (j = 0; j < rows - i; ++j) {
+            printf(" ");
+        }
+
+        for (j = 1; j <= 2 * i - 1; ++j) {
+            printf("*");
+        }
+
+        printf("\n");
+    }
+
+    return 0;
+}
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+*CALCULATOR*
+#include <stdio.h>
+
+int main() {
+    int choice;
+    float num1, num2, result;
+
+    // Display menu
+    printf("Select operation:\n");
+    printf("1. Addition\n");
+    printf("2. Multiplication\n");
+    printf("3. Division\n");
+    printf("4. Subtraction\n");
+    printf("Enter choice (1/2/3/4): ");
+    scanf("%d", &choice);
+
+    // Get user input
+    printf("Enter two numbers: ");
+    scanf("%f %f", &num1, &num2);
+
+    // Perform operation based on user's choice
+    switch (choice) {
+        case 1:
+            result = num1 + num2;
+            printf("Result: %.2f\n", result);
+            break;
+        case 2:
+            result = num1 * num2;
+            printf("Result: %.2f\n", result);
+            break;
+        case 3:
+            if (num2 != 0) {
+                result = num1 / num2;
+                printf("Result: %.2f\n", result);
+            } else {
+                printf("Error: Division by zero\n");
+            }
+            break;
+        case 4:
+            result = num1 - num2;
+            printf("Result: %.2f\n", result);
+            break;
+        default:
+            printf("Invalid choice\n");
+    }
+
+    return 0;
+}
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+*PRIME NUMBER*
+#include<stdio.h>
+void Positive( int *x)
+{
+    if(*x>0)
+    {
+        printf("NUMBER IS POSITIVE");
+    }else
+    {
+        printf("NUMBER IS NEGATIVE");
+    }
+}
+void Prime( int *x,int *z,int *a)
+{
+    if(*x==0 || *x==1)
+    {
+        *a=1;
+    }
+    for(*z=2;*z<=*x/2;++*z)
+    {
+        if(*x%*z==0)
+        {
+            *a=1;
+            break;
+        }
+    }
+    if(*a==0)
+    {
+        printf("\nENTER NUMBER IS PRIME:");
+    }
+    else
+    {
+        printf("\nENTER NUMBER IS NOT PRIME:");
+    }
+}
+void main()
+{
+    int n,k,a=0;
+    printf("ENTER A NUMBER :-");
+    scanf("%d",&n);
+    Positive(&n);
+    Prime(&n,&k,&a);
+    return 0;
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+*SQUARE*
+#include<stdio.h>
+void Positive( int *x,int *b)
+{
+    b=*x*x;
+    printf("square of %d is %d",*x,*b);
+}
+void Area( int *y,int *z,int *r)
+{
+   r=*y*z;
+   printf("Area Of Rectangle: %d",*r);
+}
+void main()
+{
+    int n,b,l,d,s;
+    printf("ENTER A NUMBER :-");
+    scanf("%d",&n);
+    Positive(&n,&d);
+    printf("\nRepresenting area of rectangle");
+    printf("\nEnter a length:");
+    scanf("%d",&l);
+    printf("\nEnter a breadth:");
+    scanf("%d",&b);
+    Area(&l,&b,&s);
+    
+    return 0;
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+*MATRICS*
+#include<stdio.h>
+#include<conio.h>
+int main()
+{
+    int mat1[3][3], mat2[3][3], i, j, mat3[3][3];
+    printf("Enter 3*3 matrix 1 elements :");
+    for(i=0; i<3; i++)
+    {
+        for(j=0; j<3; j++)
+            scanf("%d",&mat1[i][j]);
+    }
+    printf("Enter 3*3 matrix 2 elements :");
+    for(i=0; i<3; i++)
+    {
+        for(j=0; j<3; j++)
+            scanf("%d",&mat2[i][j]);
+    }
+    printf("\nAdding the two matrix.....");
+    for(i=0; i<3; i++)
+    {
+        for(j=0; j<3; j++)
+            mat3[i][j]=mat1[i][j]+mat2[i][j];
+    }
+    printf("\nBoth matrix added successfully!");
+    printf("\nHere is the new matrix:\n");
+    for(i=0; i<3; i++)
+    {
+        for(j=0; j<3; j++)
+            printf("%d ",mat3[i][j]);
+        printf("\n");
+    }
+    getch();
+    return 0;
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+*FILE CODE*
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    FILE *source, *dest;
+    char src[100], dst[100], c;
+
+    printf("Enter source filename: ");
+    scanf("%s", src);
+
+    source = fopen(src, "r");
+    if (!source) {
+        printf("Cannot open source file.\n");
+        exit(EXIT_FAILURE);
+    }
+
+    printf("Enter destination filename: ");
+    scanf("%s", dst);
+
+    dest = fopen(dst, "w");
+    if (!dest) {
+        printf("Cannot open destination file.\n");
+        fclose(source);
+        exit(EXIT_FAILURE);
+    }
+
+    while ((c = fgetc(source)) != EOF) fputc(c, dest);
+
+    printf("\nContents copied from %s to %s.\n", src, dst);
+
+    fclose(source);
+    fclose(dest);
+
+    return 0;
+}
